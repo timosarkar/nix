@@ -27,9 +27,11 @@ in
       nano = "vim";
       v = "vim";
       e = "vim"; 
-      gita = "git add .";
-      gitc = "git commit -m";
-      gitp = "git push";
+      gadd = "git add .";
+      gcommit = "git commit -m";
+      gpush = "git push";
+      gpull = "git pull";
+      gclone = "git clone";
     };
   };
 
