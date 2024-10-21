@@ -27,6 +27,9 @@ in
       nano = "vim";
       v = "vim";
       e = "vim"; 
+      gita = "git add .";
+      gitc = "git commit -m";
+      gitp = "git push";
     };
   };
 
