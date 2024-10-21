@@ -24,7 +24,6 @@ in
       podb = "podman build -t";
       podr = "podman run -it";
       nixhome = "nix run nixpkgs#home-manager -- switch --flake ./#$USER";
-      nano = "vim";
       v = "vim";
       e = "vim"; 
       ls = "ls -al";
