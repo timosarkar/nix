@@ -27,7 +27,7 @@ in
       nano = "vim";
       v = "vim";
       e = "vim"; 
-      ls = "ll";
+      ls = "ls -al";
       gadd = "git add .";
       gcommit = "git commit -m";
       gpush = "git push";
