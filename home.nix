@@ -27,11 +27,11 @@ in
       v = "vim";
       e = "vim"; 
       ls = "ls -al";
-      gadd = "git add .";
-      gcommit = "git commit -m";
-      gpush = "git push";
-      gpull = "git pull";
-      gclone = "git clone";
+      add = "git add .";
+      commit = "git commit -m";
+      push = "git push";
+      pull = "git pull";
+      clone = "git clone";
     };
   };
 
@@ -40,6 +40,15 @@ in
   # vim ultisnips
   home.file.".vim/UltiSnips/all.snippets" = {
     text = ''
+      snippet blog "txt blogpost template"
+      title: $1
+      date: `date +%Y-%m-%d\ %H:%M`
+      description: $2
+      tags: [$3]
+
+      $4
+      endsnippet
+
       snippet html "html5 template"
       <html lang="en">
         <head>
