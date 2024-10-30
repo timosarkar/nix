@@ -86,6 +86,7 @@ in
     plugins = with pkgs.vimPlugins; [
        vim-monokai-pro
        ultisnips
+       goyo
        nerdtree 
     ];
   };
