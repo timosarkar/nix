@@ -95,7 +95,7 @@ in
         nnoremap <buffer> <Right> :n<CR>
         nnoremap <buffer> <Left> :N<CR>
 
-        if !exists('!#goyo')
+        if !exists('#goyo')
           Goyo
         endif
       endfunction
