@@ -18,12 +18,12 @@ in
   # fish shell
   programs.fish = {
     enable = true;
-
     # aliases
     shellAliases = {
       podb = "podman build -t";
       podr = "podman run -it";
       nixhome = "nix run nixpkgs#home-manager -- switch --flake ./#$USER";
+      nixshell = "nix-shell";
       v = "vim";
       e = "vim"; 
       ls = "ls -al";
@@ -40,6 +40,19 @@ in
   # vim ultisnips
   home.file.".vim/UltiSnips/all.snippets" = {
     text = ''
+      snippet html "html5 template"
+      <html lang="en">
+        <head>
+          <title>$1</title>
+          <meta charset="UTF-8">
+          <meta name"viewport" content="width=device-width, inital-scale=1">
+        </head>
+        <body>
+          $0
+        </body>
+      </html>
+      endsnippet
+
       snippet lorem "lorem ipsum text"
       lorem ipsum dolor si amet
       endsnippet
@@ -66,12 +79,14 @@ in
       colorscheme monokai_pro
       let g:UltiSnipsExpandTrigger="<tab>"
       let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+      autocmd VimEnter * NERDTree | wincmd p
     '';
 
     # vim plugins
     plugins = with pkgs.vimPlugins; [
        vim-monokai-pro
        ultisnips
+       nerdtree 
     ];
   };
 }
