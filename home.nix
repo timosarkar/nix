@@ -95,6 +95,8 @@ in
         nnoremap <buffer> <Right> :n<CR>
         nnoremap <buffer> <Left> :N<CR>
 
+        NERDTreeClose
+        
         if !exists('#goyo')
           Goyo
         endif
