@@ -89,6 +89,16 @@ in
       let g:UltiSnipsExpandTrigger="<tab>"
       let g:UltiSnipsSnippetDirectories=["UltiSnips"]
       autocmd VimEnter * NERDTree | wincmd p
+
+      autocmd BufNewFile,BufRead *.vpm call SetVimPresentationMode()
+      function SetVimPresentationMode()
+        nnoremap <buffer> <Right> :n<CR>
+        nnoremap <buffer> <Left> :N<CR>
+
+        if !exists('!#goyo')
+          Goyo
+        endif
+      endfunction
     '';
 
     # vim plugins
