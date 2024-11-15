@@ -16,4 +16,17 @@ nix run nixpkgs#home-manager -- switch --flake ./#$USER
 
 ## Nix Development Environment Shells
 
+Additionally to a fully-fledged ephemeral and immutable home-directory, I provide here my development shells in form of different nix-shells. A nix-shell is basically a file, that temporarily changes your home-directory and ```PATH``` variable to include a specified set of versioned programs that we can pull from the nix-registry. After stopping the nix-shell, the ```PATH``` and home directory will be rolled back to its previous state. So If you ever experience the pain of managing different versions of nodejs, you can simply setup a nix-shell to manage this for you.
 
+You can find the shells under ```./shells/*```.
+
+### Building ```nix-shells```
+
+Simple run ```nix-shell``` with the path flag to the relative file-path of the nix shell.
+
+```bash
+nix-shell -p <path to nix shell>
+
+# nix shell that installs nodejs 22 LTS and bunjs
+nix-shell -p shells/bun.nix
+```
