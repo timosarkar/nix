@@ -67,6 +67,18 @@ in
       snippet lorem "lorem ipsum text"
       lorem ipsum dolor si amet
       endsnippet
+
+      snippet nixshell "nix shell"
+      { pkgs ? import <nixpkgs> {} }:
+
+      pkgs.mkShell {
+        buildInputs = [
+        ];
+
+        shellHook = ''
+        '';
+      }
+      endsnippet
     '';
     force = true;
   };
