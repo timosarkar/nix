@@ -73,10 +73,10 @@ in
 
       pkgs.mkShell {
         buildInputs = [
+          $1
         ];
 
-        shellHook = ''
-        '';
+        $2
       }
       endsnippet
     '';
