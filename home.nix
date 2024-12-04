@@ -13,8 +13,6 @@ in
 
   home.packages = with pkgs; [
     fish
-    bun
-    nodejs_22
   ];
 
   # fish shell
@@ -64,10 +62,6 @@ in
       </html>
       endsnippet
 
-      snippet lorem "lorem ipsum text"
-      lorem ipsum dolor si amet
-      endsnippet
-
       snippet nixshell "nix shell"
       { pkgs ? import <nixpkgs> {} }:
 
@@ -93,35 +87,33 @@ in
      };
 
     # .vimrc
-    extraConfig = ''
-      set tabstop=2
-      set softtabstop=2
-      set shiftwidth=2
-      set expandtab
-      set termguicolors
-      colorscheme monokai_pro
-      let g:UltiSnipsExpandTrigger="<tab>"
-      let g:UltiSnipsSnippetDirectories=["UltiSnips"]
-      autocmd VimEnter * NERDTree | wincmd p
+extraConfig = ''
+  set tabstop=2
+  set softtabstop=2
+  set shiftwidth=2
+  set expandtab
+  set termguicolors
+  colorscheme monokai_pro
+  let g:UltiSnipsExpandTrigger="<tab>"
+  let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+  autocmd VimEnter * NERDTree | wincmd p
 
-      autocmd BufNewFile,BufRead *.vpm call SetVimPresentationMode()
-      function SetVimPresentationMode()
-        nnoremap <buffer> <Right> :n<CR>
-        nnoremap <buffer> <Left> :N<CR>
+  autocmd BufNewFile,BufRead *.vpm call SetVimPresentationMode()
+  function SetVimPresentationMode()
+    nnoremap <buffer> <Right> :n<CR>
+    nnoremap <buffer> <Left> :N<CR>
 
-        NERDTreeClose
-        
-        if !exists('#goyo')
-          Goyo
-        endif
-      endfunction
-    '';
+    NERDTreeClose
+  endfunction
+
+  " Automatically close Vim if NERDTree is the only window left
+  autocmd BufEnter * if winnr('$') == 1 && getbufvar(winbufnr(0), '&filetype') == 'nerdtree' | quit | endif
+'';
 
     # vim plugins
     plugins = with pkgs.vimPlugins; [
        vim-monokai-pro
        ultisnips
-       goyo
        nerdtree 
     ];
   };
