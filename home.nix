@@ -13,6 +13,7 @@ in
 
   home.packages = with pkgs; [
     fish
+    nodejs_23
   ];
 
   # fish shell
