@@ -41,15 +41,6 @@ in
   # vim ultisnips
   home.file.".vim/UltiSnips/all.snippets" = {
     text = ''
-      snippet blog "txt blogpost template"
-      title: $1
-      date: `date +%Y-%m-%d\ %H:%M`
-      description: $2
-      tags: [$3]
-
-      $4
-      endsnippet
-
       snippet html "html5 template"
       <html lang="en">
         <head>
@@ -68,10 +59,8 @@ in
 
       pkgs.mkShell {
         buildInputs = [
-          $1
+          pkgs.$1
         ];
-
-        $2
       }
       endsnippet
     '';
@@ -94,9 +83,10 @@ extraConfig = ''
   set shiftwidth=2
   set expandtab
   set termguicolors
-  colorscheme monokai_pro
+  colorscheme vim-monokai-tasty
   let g:UltiSnipsExpandTrigger="<tab>"
   let g:UltiSnipsSnippetDirectories=["UltiSnips"]
+  let g:NERDTreeWinSize = 20
   autocmd VimEnter * NERDTree | wincmd p
 
   autocmd BufNewFile,BufRead *.vpm call SetVimPresentationMode()
@@ -113,7 +103,7 @@ extraConfig = ''
 
     # vim plugins
     plugins = with pkgs.vimPlugins; [
-       vim-monokai-pro
+       vim-monokai-tasty
        ultisnips
        nerdtree 
     ];
