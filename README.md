@@ -8,9 +8,12 @@ In the root directory you find my Nix home-manager configs. Home-manager configu
 
 To replicate my home directory, dotfiles and installed/configured programs without breaking your own one, you need to install and run this podman container as shown below. 
 
+> **IMPORTANT! If you have made changes to local files that get imported by the flake, then you need to stage them into the git tree with ``git add .```**
+
 ```bash
 podman build -t nix .
 podman run -it nix
+git add .
 nix run nixpkgs#home-manager -- switch --flake ./#$USER
 ```
 
