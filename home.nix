@@ -27,7 +27,7 @@ in
       nixshell = "nix-shell";
       v = "vim";
       e = "vim"; 
-      ls = "ls -al";
+      ls = "ls";
       sl = "ls"; # yes this was really necessary...
       add = "git add .";
       commit = "git commit -m";
