@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, PHPsnippets, ... }:
 
 let
   # get current username
@@ -37,6 +37,11 @@ in
   };
 
   programs.home-manager.enable = true;
+
+  home.file.".vim/UltiSnips/php.snippets" = {
+    text = PHPsnippets;
+    force = true;
+  };
 
   # vim ultisnips
   home.file.".vim/UltiSnips/all.snippets" = {

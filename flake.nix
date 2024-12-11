@@ -13,7 +13,7 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
     username = if builtins.getEnv "USER" != "" then builtins.getEnv "USER" else "root";
-
+    PHPsnippets = builtins.readFile ./snippets/php.snippets;
   in {
     homeConfigurations = {
       "${username}" = home-manager.lib.homeManagerConfiguration {
@@ -22,6 +22,8 @@
         modules = [
           ./home.nix
         ];
+
+        extraSpecialArgs = { inherit PHPsnippets; };
       };
     };
   };
