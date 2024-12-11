@@ -28,6 +28,7 @@ in
       v = "vim";
       e = "vim"; 
       ls = "ls -al";
+      sl = "ls"; # yes this was really necessary...
       add = "git add .";
       commit = "git commit -m";
       push = "git push";
