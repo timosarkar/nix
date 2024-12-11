@@ -1,4 +1,4 @@
-{ config, pkgs, PHPsnippets, ... }:
+{ config, pkgs, snippets,  ... }:
 
 let
   # get current username
@@ -19,7 +19,7 @@ in
   # fish shell
   programs.fish = {
     enable = true;
-    # aliases
+    
     shellAliases = {
       podb = "podman build -t";
       podr = "podman run -it";
@@ -38,40 +38,12 @@ in
 
   programs.home-manager.enable = true;
 
-  home.file.".vim/UltiSnips/php.snippets" = {
-    text = PHPsnippets;
-    force = true;
-  };
-
   # vim ultisnips
   home.file.".vim/UltiSnips/all.snippets" = {
-    text = ''
-      snippet html "html5 template"
-      <html lang="en">
-        <head>
-          <title>$1</title>
-          <meta charset="UTF-8">
-          <meta name"viewport" content="width=device-width, inital-scale=1">
-        </head>
-        <body>
-          $0
-        </body>
-      </html>
-      endsnippet
-
-      snippet nixshell "nix shell"
-      { pkgs ? import <nixpkgs> {} }:
-
-      pkgs.mkShell {
-        buildInputs = [
-          pkgs.$1
-        ];
-      }
-      endsnippet
-    '';
+    text = snippets;
     force = true;
   };
-
+  
   # vim
   programs.vim = {
     enable = true;
