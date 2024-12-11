@@ -54,7 +54,8 @@ in
      };
 
     # .vimrc
-extraConfig = ''
+    extraConfig = ''
+    set nowrap
   set tabstop=2
   set softtabstop=2
   set shiftwidth=2
@@ -64,6 +65,9 @@ extraConfig = ''
   let g:UltiSnipsExpandTrigger="<tab>"
   let g:UltiSnipsSnippetDirectories=["UltiSnips"]
   let g:NERDTreeWinSize = 20
+  let g:ale_completion_enabled = 1
+  let g:ale_lint_on_text_changed = "always"
+
   autocmd VimEnter * NERDTree | wincmd p
 
   autocmd BufNewFile,BufRead *.vpm call SetVimPresentationMode()
@@ -82,7 +86,8 @@ extraConfig = ''
     plugins = with pkgs.vimPlugins; [
        vim-monokai-tasty
        ultisnips
-       nerdtree 
+       nerdtree
+       ale 
     ];
   };
 }
