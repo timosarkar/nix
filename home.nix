@@ -18,6 +18,11 @@ in
     thefuck
   ];
 
+  # thefuck
+  programs.thefuck = {
+    enable = true;
+  };
+  
   # zoxide
   programs.zoxide = {
     enable = true;
