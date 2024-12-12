@@ -18,6 +18,8 @@
     snippets = builtins.readFile ./files/snippets/all.snippets;
     # aliases = builtins.readFile ./files/aliases;
     markdown = builtins.readFile ./files/snippets/markdown.snippets;
+    snippets-snippets = builtins.readFile ./files/snippets/snippets.snippets;
+    html = builtins.readFile ./files/snippets/html.snippets;
   in {
     homeConfigurations = {
       "${username}" = home-manager.lib.homeManagerConfiguration {
@@ -29,7 +31,9 @@
 
         extraSpecialArgs = { 
           inherit snippets;
+          inherit snippets-snippets;
           inherit markdown;
+          inherit html;
           # inherit aliases;
         };
       };

@@ -1,4 +1,4 @@
-{ config, pkgs, snippets, markdown,  ... }:
+{ config, pkgs, snippets, markdown, html, snippets-snippets, ... }:
 
 let
   # get current username
@@ -48,6 +48,16 @@ in
   home.file.".vim/UltiSnips/markdown.snippets" = {
     text = markdown;
     force = true;  
+  };
+
+  home.file.".vim/UltiSnips/html.snippets" = {
+    text = html;
+    force = true;
+  };
+
+  home.file.".vim/UltiSnips/snippets.snippets" = {
+    text = snippets-snippets;
+    force = true;
   };
   
   # vim
