@@ -17,6 +17,7 @@
     # local files to include by home-manager
     snippets = builtins.readFile ./files/snippets/all.snippets;
     # aliases = builtins.readFile ./files/aliases;
+    markdown = builtins.readFile ./files/snippets/markdown.snippets;
   in {
     homeConfigurations = {
       "${username}" = home-manager.lib.homeManagerConfiguration {
@@ -28,6 +29,7 @@
 
         extraSpecialArgs = { 
           inherit snippets;
+          inherit markdown;
           # inherit aliases;
         };
       };
