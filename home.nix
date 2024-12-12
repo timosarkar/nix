@@ -14,8 +14,22 @@ in
   home.packages = with pkgs; [
     fish
     nodejs_22
+    zoxide
+    thefuck
   ];
 
+  # zoxide
+  programs.zoxide = {
+    enable = true;
+    enableBashIntegration = true;
+    enableFishIntegration = true;
+    
+    # map the cd command to zoxide z
+    options = [
+      "--cmd cd"
+    ];
+  };
+  
   # fish shell
   programs.fish = {
     enable = true;
@@ -34,6 +48,7 @@ in
       push = "git push";
       pull = "git pull";
       clone = "git clone";
+      f = "fuck";
     };
   };
 
