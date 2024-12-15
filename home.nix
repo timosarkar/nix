@@ -123,7 +123,8 @@ in
        vim-monokai-tasty
        ultisnips
        nerdtree
-       ale 
+       ale
+       vim-airline
     ];
   };
 }
