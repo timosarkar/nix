@@ -23,7 +23,7 @@ nix run nixpkgs#home-manager -- switch --flake ./#$USER
 
 Simply install nix and then run this
 
-````bash
+```bash
 sudo chmod +x ./build.sh
 ./build.sh
 ```
