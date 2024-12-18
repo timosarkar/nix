@@ -1,0 +1,63 @@
+snippet nix-shell "simple nix shell"
+{ pkgs ? import <nixpkgs> {} }:
+
+pkgs.mkShell {
+  buildInputs = [
+		pkgs.$1
+	];
+}
+endsnippet
+
+snippet docker "simple dockerfile"
+FROM ubuntu:latest
+
+RUN apt update -y
+
+$1
+
+CMD ["bash"]
+endsnippet
+
+snippet php "simple php boiler"
+<?php
+$1
+?>
+endsnippet
+
+snippet php-if "php conditionals"
+<? if ($1): ?>
+<? elseif (): ?>
+<? else: ?>
+<? endif; ?>
+endsnippet
+
+snippet php-composer "php composer imports"
+use Dotenv\Dotenv;
+require 'vendor/autoload.php';
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+endsnippet
+
+snippet html-style "html style tag"
+<style>
+$1
+</style>
+endsnippet
+
+snippet php-pages "multiple page routes"
+<?php if ($_SERVER['REQUEST_URI'] == '$1'): ?>
+<?php elseif ($_SERVER['REQUEST_URI'] == ''): ?>
+<?php else: ?>
+<?php endif; ?>
+endsnippet
+
+snippet php-sqlite "init a sqlite db using php"
+try {
+	$db = new PDO('sqlite:users.db');
+	$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	$db->exec($1);
+} catch(Exception $e) {
+  error_log("Database Error: " . $e->getMessage());
+}
+endsnippet

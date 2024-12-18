@@ -2,9 +2,11 @@
 
 This repository contains all of my configurations and programs on my devices. They are all written using the Nix expression language, so that I can get ephemeral builds with very expressive parameters and versioning that run on all platforms and dont break. 
 
-In the root directory you find my Nix home-manager configs. Home-manager configures my home directory and dotfiles on Ubuntu-22.02LTS, Debian 11 and Arch Linux. ```home.nix``` contains the configurations for my installed programs such as vim. 
+In the root directory you find my Nix home-manager configs. Home-manager configures my home directory and dotfiles on Ubuntu-22.02LTS, Debian 11, Arch Linux as well as on my new Apple MacBook Pro M4. ```home.nix``` contains the configurations for my installed programs such as vim. 
 
-## Replicate Nix home-manager
+
+
+## Replicate Nix home-manager on x86_64 Linux
 
 To replicate my home directory, dotfiles and installed/configured programs without breaking your own one, you need to install and run this podman container as shown below. 
 
@@ -16,6 +18,17 @@ podman run -it nix
 git add .
 nix run nixpkgs#home-manager -- switch --flake ./#$USER
 ```
+
+## Replicate Nix home-manager & nix-darwin on aarch64-darwin
+
+Simply install nix and then run this
+
+````bash
+sudo chmod +x ./build.sh
+./build.sh
+```
+
+You then might need to source your current shell to apply the changes made by nix-darwin and home-manager.
 
 ## Nix Development Environment Shells
 
