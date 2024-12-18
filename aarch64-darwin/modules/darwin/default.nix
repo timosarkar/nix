@@ -2,16 +2,20 @@
   let 
     username = "timo";
   in {
+
+
   # here go the darwin preferences and config items
   programs.zsh = {
     enable = true;
     shellInit = "";
   };
-  
+
   environment = {
     shells = with pkgs; [ zsh ];
     loginShell = pkgs.zsh;
-    systemPackages = [ pkgs.coreutils ];
+    systemPackages = [ 
+      pkgs.coreutils 
+    ];
     systemPath = [
       "/opt/homebrew/bin"
       "/run/current-system/sw/bin"  # Add this to ensure Nix binaries are available

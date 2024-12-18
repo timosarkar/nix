@@ -15,10 +15,20 @@
       username = "timo";
       hostname = "Mac";
       architecture = "aarch64-darwin";
+      allowed-unfree-packages = [
+        "shortcat"
+        "vscode"
+      ];
     in {
     darwinConfigurations.${hostname} = darwin.lib.darwinSystem {
       system = architecture;
-      pkgs = import nixpkgs { system = architecture; };
+      pkgs = import nixpkgs { 
+        system = architecture; 
+        config = {
+          allowUnfree = true;
+          allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) allowed-unfree-packages;
+        };
+      };
       modules = [
         ./modules/darwin
         home-manager.darwinModules.home-manager
@@ -40,8 +50,12 @@
           home-manager = {
             useGlobalPkgs = true;
             useUserPackages = true;
-            extraSpecialArgs = { };
-            users.${username}.imports = [ ./modules/home-manager ];
+            extraSpecialArgs = {  
+              inherit allowed-unfree-packages;
+            };
+            users.${username} = {
+              imports = [ ./modules/home-manager ];
+            };
           };
         })
       ];

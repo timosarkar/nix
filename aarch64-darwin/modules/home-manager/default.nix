@@ -1,10 +1,16 @@
-{ pkgs, ... }: {
+{ pkgs, lib, allowed-unfree-packages, ... }: {
   # Don't change this when you change package input. Leave it alone.
   home.stateVersion = "22.11";
-  home.packages = with pkgs; [];
-
-  programs.home-manager.enable = true;
+  home.packages = with pkgs; [ 
+    # add unFree packages here
+    obsidian
+    (pkgs.shortcat.overrideAttrs (oldAttrs: {
+      version = "latest";
+    }))
+  ];
   
+  programs.home-manager.enable = true;
+
   # zoxide
   programs.zoxide = {
     enable = true;
@@ -98,7 +104,4 @@
   
   # vim ultisnips 
   home.file.".vim/UltiSnips/all.snippets".source = ./files/all.snippets;
-
-  nixpkgs.config.allowUnfree = true;
-
 }
