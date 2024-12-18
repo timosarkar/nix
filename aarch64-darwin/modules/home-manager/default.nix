@@ -3,14 +3,14 @@
   home.stateVersion = "22.11";
   home.packages = with pkgs; [ 
     # add unFree packages here
-    obsidian
+    # obsidian
+
     (pkgs.shortcat.overrideAttrs (oldAttrs: {
-      version = "latest";
+      version = "0.11.4";
     }))
   ];
   
   programs.home-manager.enable = true;
-
   # zoxide
   programs.zoxide = {
     enable = true;
@@ -104,4 +104,19 @@
   
   # vim ultisnips 
   home.file.".vim/UltiSnips/all.snippets".source = ./files/all.snippets;
+
+  # vscode settings
+  programs.vscode = {
+    enable = true;
+    userSettings = {
+      # other vscode settings here
+      "workbench.colorTheme" = "Monokai";
+    };
+    
+    extensions = with pkgs.vscode-extensions; [
+      # Example extensions:
+      # pkief.material-icon-theme
+      # zhuangtongfa.material-theme
+    ];
+  };
 }
