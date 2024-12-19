@@ -8,9 +8,14 @@
     (pkgs.shortcat.overrideAttrs (oldAttrs: {
       version = "0.11.4";
     }))
+
+    conan
+    bun
   ];
   
   programs.home-manager.enable = true;
+
+
   # zoxide
   programs.zoxide = {
     enable = true;
@@ -31,7 +36,7 @@
     enableSyntaxHighlighting = true;
 
     initExtra = ''
-      PS1='%F{green}%~%f $ '
+    PS1='%~ $ '
     '';
 
     shellAliases = {
