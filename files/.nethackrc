@@ -1,12 +1,17 @@
+NAME=timosarkar
+
+
+
 OPTIONS=hilite_pet
 OPTIONS=showexp
 OPTIONS=time
 OPTIONS=lit_corridor
 OPTIONS=autopickup
 OPTIONS=pickup_types=$
+OPTIONS=boulder=0
 
 # valkyrie
-OPTIONS=role:val,race:dwa,align:law,gender:fem
+# OPTIONS=role:val,race:dwa,align:law,gender:fem
 
 # colors
 OPTIONS=color
@@ -33,3 +38,48 @@ OPTIONS=hilite_status:condition/foodpois/red&inverse
 OPTIONS=hilite_status:condition/slime/red&inverse
 OPTIONS=hilite_status:characteristics/up/green/down/red
 OPTIONS=hilite_status: gold/up/yellow/down/brown
+
+OPTIONS=menucolors
+
+
+
+# Yellow for explosion danger:
+MENUCOLOR="holding"=yellow
+MENUCOLOR="cancel"=yellow
+MENUCOLOR="tricks"=yellow
+MENUCOLOR="vanish"=yellow
+MENUCOLOR="Emergency"=yellow
+
+# Light magenta for items I might want to leave cursed:
+MENUCOLOR="unholy.*water"=lightmagenta
+MENUCOLOR=" cursed.*water"=lightmagenta
+MENUCOLOR=" cursed.*clear potion"=lightmagenta
+MENUCOLOR=" cursed.*destroy armor"=lightmagenta
+MENUCOLOR=" cursed.*gain level"=lightmagenta
+MENUCOLOR=" cursed.*scroll.*teleportation"=lightmagenta
+MENUCOLOR=" cursed.*scroll.*create monster"=lightmagenta
+MENUCOLOR=" cursed.*blank"=lightmagenta
+
+#  spell failure rates
+MENUCOLOR=" 0%"=lightgreen
+MENUCOLOR=" [1-9]%"=green
+MENUCOLOR=" 1[0-9]%"=green
+MENUCOLOR=" 2[0-4]%"=lightcyan
+MENUCOLOR=" 2[5-9]%"=lightcyan
+MENUCOLOR=" [3-4][0-9]%"=yellow
+MENUCOLOR=" [5-9][0-9]%"=orange
+MENUCOLOR=" 100%"=lightmagenta
+MENUCOLOR="[a-zA-Z ]+[ ]+[0-9]+\*[ ]+[a-z]+[ ]+[0-9]+%"=gray
+
+
+# Basic BUC states:
+MENUCOLOR=" blessed "=green
+MENUCOLOR=" holy "=green
+MENUCOLOR="scroll.*scare.*monster"=lightmagenta
+MENUCOLOR=" unholy "=red
+MENUCOLOR=" b.C"=red
+MENUCOLOR=" cursed "=red
+MENUCOLOR=" cursed .* (being worn)"=red&underline
+MENUCOLOR="uncursed"=lightcyan
+MENUCOLOR="accursed"=red
+MENUCOLOR="accursed .* (being worn)"=red&underline
