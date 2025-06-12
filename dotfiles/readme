@@ -1,1 +1,3 @@
 this dir contains my non-nix dotfiles
+
+- nvim/ -> ~/.config/nvim
