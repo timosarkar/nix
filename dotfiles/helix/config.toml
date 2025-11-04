@@ -1,0 +1,17 @@
+# ~/.config/helix/config.toml
+[editor]
+true-color = true
+
+[keys.normal]
+C-o = ":w"
+C-x = ":q!"
+C-right = "move_next_word_start"
+C-left = "move_prev_word_start"
+C-k = ["extend_line_below", "delete_selection"]
+
+[keys.insert]
+C-o = ":w"
+C-x = ":q!"
+C-right = "move_next_word_start"
+C-left = "move_prev_word_start"
+C-k = ["extend_line_below", "delete_selection"]
