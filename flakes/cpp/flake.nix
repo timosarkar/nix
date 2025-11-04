@@ -1,6 +1,8 @@
 {
   description = "Simple C++ project using LLVM and CMake";
-
+  # nix develop
+  # nix build
+  # ./result/bin/project
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-25.05";
     flake-utils.url = "github:numtide/flake-utils";
